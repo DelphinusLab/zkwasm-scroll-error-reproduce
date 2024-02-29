@@ -1,0 +1,41 @@
+{
+  "chain_id": 534351,
+  "circuit_size": 22,
+  "aggregator_lib_address": "0x01a6085775aca8cc9ca4a72f66999ca0f6a9a7f7",
+  "aggregator_config_address": "0xc9b8a015b0aeed81a5fb650ac6727a8f5994924d",
+  "aggregator_verifier_steps": [
+    "0xd8fc3c7ec703aa04a461611ec2b3602bbb25a43f",
+    "0xd96ff9a0de1aad0f59ab5b44396001cb5f851346",
+    "0x29c4af7a43070f2ad7eb4b201cab03fb285b7f55"
+  ],
+  "aggregator_verifier": "0xc9306002c5215fb6b97c33b02ee85be0980882ad",
+  "static_file_checksum": [
+    180, 47, 20, 229, 166, 1, 198, 30, 247, 143, 108, 14, 236, 97, 223, 187, 2,
+    189, 211, 209, 1, 223, 248, 222, 40, 94, 192, 12, 182, 198, 219, 116
+  ],
+  "git_commit_hash": "babc5d6215a86bfb4ad28b78786111fe1ead1e51",
+  "compiler_settings": {
+    "optimizer": { "enabled": true, "runs": 1 },
+    "outputSelection": {
+      "*": {
+        "": ["ast"],
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers"
+        ]
+      }
+    },
+    "evmVersion": "london",
+    "libraries": {
+      "server_storage/static/sol_22/AggregatorConfig.sol": {
+        "AggregatorConfig": "0xc9b8a015b0aeed81a5fb650ac6727a8f5994924d"
+      },
+      "server_storage/static/sol_22/AggregatorLib.sol": {
+        "AggregatorLib": "0x01a6085775aca8cc9ca4a72f66999ca0f6a9a7f7"
+      }
+    }
+  },
+  "contracts_path": "server_storage/static/sol_22"
+}

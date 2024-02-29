@@ -51,7 +51,8 @@ async function try_verify_proof(
 
 async function main() {
   const queryParams: QueryParams = {
-    id: "65deb45a25c1313d854dc812",
+    id: "65e014009a04a16a45545f2e",
+    //id: "65deb45a25c1313d854dc812",
     user_address: null,
     md5: null,
     taskstatus: null,
@@ -66,12 +67,12 @@ async function main() {
 
   const task = data.data[0];
   console.log("Task: ", task);
-  await try_verify_proof(
-    config.sepoliaRpcUrl,
-    config.sepoliaContractAddressA,
-    task
-  );
-  console.log("Verified proof for contract A on sepolia");
+  // await try_verify_proof(
+  //   config.sepoliaRpcUrl,
+  //   config.sepoliaContractAddressA,
+  //   task
+  // );
+  // console.log("Verified proof for contract A on sepolia");
   await try_verify_proof(
     config.sepoliaRpcUrl,
     config.sepoliaContractAddressB,
