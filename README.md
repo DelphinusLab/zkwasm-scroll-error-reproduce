@@ -54,7 +54,9 @@ Go back to the root directory of the repo
 cd ../
 ```
 
-Modify `config.ts` to add a valid `privateKey` and/or alternative RPC urls if necessary
+Modify `config.ts` to add a valid `privateKey` and/or alternative RPC urls if necessary.
+Notes: Run the verity script to reproduce the error with Scroll Testnet. Scroll Testnet transaction most like hang indefinitely after submitting the transaction.transaction.
+As it may hang indefinitely, so better create a new account address to do it each time in order to not affect next testing.
 
 Build to compile typescript
 
@@ -62,9 +64,8 @@ Build to compile typescript
 npm run build
 ```
 
-Run the script to reproduce the error with Scroll Testnet. Currently it seems as though it may error with 520. Or it may hang indefinitely after submitting the transaction.
-
 Expect sepolia to verify successfully.
+Scroll Testnet most like hang indefinitely after submitting the transaction.transaction.
 
 ```bash
 node dist/verify.js
