@@ -14,12 +14,12 @@ export async function try_verify_proof(
   console.log("network: ", network.chainId, network.name, network);
   console.log("rpcUrl: ", rpcUrl);
   console.log("contractAddress: ", contractAddress);
-  let proof = await readFileAsBytes("proofs/batchsample.0.transcript.data");
-  let instances = await readFileAsBytes("proofs/test1.0.instance.data");
+  let proof = await readFileAsBytes("../proofs/batchsample.0.transcript.data");
+  let instances = await readFileAsBytes("../proofs/test1.0.instance.data");
   let batch_instances = await readFileAsBytes(
-    "proofs/batchsample.0.instance.data"
+    "../proofs/batchsample.0.instance.data"
   );
-  let aux = await readFileAsBytes("proofs/batchsample.0.aux.data");
+  let aux = await readFileAsBytes("../proofs/batchsample.0.aux.data");
 
   try {
     await withDelphinusWalletConnector(
@@ -73,7 +73,7 @@ export async function main() {
     "..",
     "/batcher-tests/continuation-batcher/output"
   );
-  const destDir = path.join(__dirname, "/proofs");
+  const destDir = path.join(__dirname, "..", "/proofs");
   await fs.mkdir(destDir, { recursive: true });
 
   // Copy specific files over including
