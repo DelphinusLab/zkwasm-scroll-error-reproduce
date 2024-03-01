@@ -1,0 +1,4 @@
+[submodule "batcher-tests/continuation-batcher"]
+	path = batcher-tests/continuation-batcher
+	url = git@github.com:DelphinusLab/continuation-batcher.git
+	branch = keccak-test
