@@ -69,7 +69,7 @@ async function main() {
 
       index += 1;
     } catch (e) {
-      console.log("No more steps to deploy", e);
+      console.log("No more steps to deploy");
       break; // Exit loop if the contract factory fails (indicating no more steps)
     }
   }
