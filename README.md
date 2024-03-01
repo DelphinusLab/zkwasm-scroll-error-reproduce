@@ -25,12 +25,16 @@ bash test_keccak.sh
 
 ### Deploy contracts
 
+```bash
+cd batcher-tests
+```
+
 Firstly, add private keys to `hardhat.config.js` for the networks you want to deploy to.
 
 Then run the deploy script to deploy the contracts to the networks
 
 ```bash
-cd batcher-tests
+
 bash deploy.sh
 ```
 
