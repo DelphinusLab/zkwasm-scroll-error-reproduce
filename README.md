@@ -26,7 +26,7 @@ bash test_keccak.sh
 ### Deploy contracts
 
 ```bash
-cd batcher-tests
+cd ../batcher-tests
 ```
 
 Firstly, add private keys to `hardhat.config.js` for the networks you want to deploy to.
@@ -47,6 +47,12 @@ npx hardhat run scripts/deploy.js --network <network>
 ```
 
 ### Build the verification script
+
+Go back to the root directory of the repo
+
+```bash
+cd ../
+```
 
 Modify `config.ts` to add a valid `privateKey` and/or alternative RPC urls if necessary
 
