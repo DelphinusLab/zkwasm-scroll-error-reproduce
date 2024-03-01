@@ -1,4 +1,4 @@
-cp continuation-batcher/sol/contracts contracts -r
+cp continuation-batcher/sol/contracts/* contracts -r
 
 npx hardhat compile
 
