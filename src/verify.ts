@@ -70,6 +70,7 @@ export async function main() {
   // Copy proof output files from the continuation-batcher to the current directory
   const srcDir = path.join(
     __dirname,
+    "..",
     "/batcher-tests/continuation-batcher/output"
   );
   const destDir = path.join(__dirname, "/proofs");
