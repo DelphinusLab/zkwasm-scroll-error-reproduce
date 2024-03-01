@@ -43,8 +43,10 @@ export async function try_verify_proof(
           contract.getEthersContract(),
           proofParams
         );
+        console.log("Transaction created. Tx Hash: ", tx.hash);
         // wait for tx to be mined, can add no. of confirmations as arg
         let receipt = await tx.wait();
+        console.log("Transaction mined.");
         console.log(receipt);
       },
       provider,
