@@ -101,7 +101,9 @@ export async function main() {
       await loadDeployments("sepolia")
     ).AggregatorVerifier
   );
-
+  console.log(
+    "-------------------------------Sepolia Success-------------------------------"
+  );
   await try_verify_proof(
     config.scrollRpcUrl,
     (
