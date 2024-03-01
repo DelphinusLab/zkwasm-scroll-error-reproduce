@@ -9,7 +9,7 @@ Install dependencies for this directory first and setup submodules for `continua
 ```bash
 npm install
 git submodule update --init --recursive
-// Install Dependencies in `batcher-tests` to get Hardhat Environemnt setup correctly
+# Install Dependencies in `batcher-tests` to get Hardhat Environemnt setup correctly
 cd batcher-tests
 npm install
 ```
