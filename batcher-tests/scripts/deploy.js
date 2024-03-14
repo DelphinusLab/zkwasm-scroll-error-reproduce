@@ -31,9 +31,12 @@ async function main() {
   // Deploy AggregatorLib, AggregatorConfig, AggregatorVerifier, and steps
   const AggregatorLib = await ethers.getContractFactory("AggregatorLib");
   const aggregatorLib = await AggregatorLib.deploy();
+
   console.log("Waiting for deployment - AggregatorLib");
   await aggregatorLib.waitForDeployment();
+
   console.log("AggregatorLib deployed at", aggregatorLib.target);
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   contracts.AggregatorLib = aggregatorLib.target;
   // Deploy AggregatorConfig
   const AggregatorConfig = await ethers.getContractFactory("AggregatorConfig");
@@ -42,6 +45,7 @@ async function main() {
   await aggregatorConfig.waitForDeployment();
 
   console.log("AggregatorConfig deployed at", aggregatorConfig.target);
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   contracts.AggregatorConfig = aggregatorConfig.target;
 
   // Deploy steps and AggregatorVerifier with dynamic linking
@@ -65,6 +69,8 @@ async function main() {
         step.target
       );
 
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
       contracts["AggregatorVerifierCoreStep" + index.toString()] = step.target;
 
       index += 1;
@@ -73,7 +79,7 @@ async function main() {
       break; // Exit loop if the contract factory fails (indicating no more steps)
     }
   }
-
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   // Deploy AggregatorVerifier with steps
   const AggregatorVerifier = await ethers.getContractFactory(
     "AggregatorVerifier"
