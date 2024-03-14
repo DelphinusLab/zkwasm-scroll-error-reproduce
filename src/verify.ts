@@ -5,6 +5,12 @@ import { config } from "./config";
 import fs from "fs/promises";
 import path from "path";
 
+// Files
+const proof_file = "batchsample.0.transcript.data";
+const instances_file = "test1.0.instance.data";
+const batch_instances_file = "batchsample.0.shadowinstance.data";
+const aux_file = "batchsample.0.aux.data";
+
 export async function try_verify_proof(
   rpcUrl: string,
   contractAddress: string
@@ -14,12 +20,10 @@ export async function try_verify_proof(
   console.log("network: ", network.chainId, network.name, network);
   console.log("rpcUrl: ", rpcUrl);
   console.log("contractAddress: ", contractAddress);
-  let proof = await readFileAsBytes("proofs/batchsample.0.transcript.data");
-  let instances = await readFileAsBytes("proofs/test1.0.instance.data");
-  let batch_instances = await readFileAsBytes(
-    "proofs/batchsample.0.instance.data"
-  );
-  let aux = await readFileAsBytes("proofs/batchsample.0.aux.data");
+  let proof = await readFileAsBytes("proofs/" + proof_file);
+  let instances = await readFileAsBytes("proofs/" + instances_file);
+  let batch_instances = await readFileAsBytes("proofs/" + batch_instances_file);
+  let aux = await readFileAsBytes("proofs/" + aux_file);
 
   try {
     await withDelphinusWalletConnector(
@@ -80,20 +84,16 @@ export async function main() {
 
   // Copy specific files over including
   // batchsample.0.transcript.data
-  // batchsample.0.instance.data
+  // batchsample.0.shadowinstance.data
   // batchsample.0.aux.data
   // test1.0.instance.data (single proof data)
 
-  const files = [
-    "batchsample.0.transcript.data",
-    "batchsample.0.instance.data",
-    "batchsample.0.aux.data",
-    "test1.0.instance.data",
-  ];
+  const files = [proof_file, instances_file, batch_instances_file, aux_file];
 
   for (const file of files) {
     const src = path.join(srcDir, file);
     const dest = path.join(destDir, file);
+    // Default will overwrite the file if it exists
     await fs.copyFile(src, dest);
   }
 
