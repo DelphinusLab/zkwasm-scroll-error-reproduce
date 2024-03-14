@@ -110,13 +110,13 @@ export async function main() {
   console.log(
     "-------------------------------Sepolia Success-------------------------------"
   );
-  /*
+  
   await try_verify_proof(
     config.scrollRpcUrl,
     (
       await loadDeployments("scrolltestnet")
     ).AggregatorVerifier
-  );*/
+  );
   console.log("Done");
 }
 
