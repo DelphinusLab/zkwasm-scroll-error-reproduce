@@ -6,8 +6,8 @@ import fs from "fs/promises";
 import path from "path";
 
 // Files
-const proof_file = "batchsample.0.transcript.data";
-const instances_file = "test1.0.instance.data";
+const proof_file = "batchsample.0.transcripts.data";
+const instances_file = "test_circuit.0.instance.data";
 const batch_instances_file = "batchsample.0.shadowinstance.data";
 const aux_file = "batchsample.0.aux.data";
 
