@@ -7,8 +7,11 @@ import path from "path";
 
 // Files
 const proof_file = "batchsample.0.transcripts.data";
-const instances_file = "test_circuit.0.instance.data";
+//const instances_file = "test_circuit.0.instance.data";
+const instances_file_1 = "test_circuit.0.instance.data";
+const instances_file_2 = "test_circuit.1.instance.data";
 const batch_instances_file = "batchsample.0.shadowinstance.data";
+//const batch_instances_file = "batchsample.0.instance.data";
 const aux_file = "batchsample.0.aux.data";
 
 export async function try_verify_proof(
@@ -21,7 +24,8 @@ export async function try_verify_proof(
   console.log("rpcUrl: ", rpcUrl);
   console.log("contractAddress: ", contractAddress);
   let proof = await readFileAsBytes("proofs/" + proof_file);
-  let instances = await readFileAsBytes("proofs/" + instances_file);
+  let instance_1 = await readFileAsBytes("proofs/" + instances_file_1);
+  let instance_2 = await readFileAsBytes("proofs/" + instances_file_2);
   let batch_instances = await readFileAsBytes("proofs/" + batch_instances_file);
   let aux = await readFileAsBytes("proofs/" + aux_file);
 
@@ -39,7 +43,7 @@ export async function try_verify_proof(
           aggregate_proof: proof,
           batch_instances: batch_instances,
           aux: aux,
-          instances: instances,
+          instances: [instance_1, instance_2],
         };
         console.log(proofParams);
         console.log("Verifying proof...");
@@ -88,7 +92,7 @@ export async function main() {
   // batchsample.0.aux.data
   // test1.0.instance.data (single proof data)
 
-  const files = [proof_file, instances_file, batch_instances_file, aux_file];
+  const files = [proof_file, instances_file_1, instances_file_2, batch_instances_file, aux_file];
 
   for (const file of files) {
     const src = path.join(srcDir, file);
@@ -106,12 +110,13 @@ export async function main() {
   console.log(
     "-------------------------------Sepolia Success-------------------------------"
   );
+  /*
   await try_verify_proof(
     config.scrollRpcUrl,
     (
       await loadDeployments("scrolltestnet")
     ).AggregatorVerifier
-  );
+  );*/
   console.log("Done");
 }
 

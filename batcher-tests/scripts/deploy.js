@@ -55,6 +55,7 @@ async function main() {
   while (true) {
     let AggregatorVerifierCoreStep;
     try {
+      console.log("Begin deployment - AggregatorVerifierCoreStep", index);
       AggregatorVerifierCoreStep = await ethers.getContractFactory(
         "AggregatorVerifierCoreStep" + index.toString()
       );
@@ -75,6 +76,7 @@ async function main() {
 
       index += 1;
     } catch (e) {
+      console.log(`AggregatorVerifierCoreStep ${index} error: `, e);
       console.log("No more steps to deploy");
       break; // Exit loop if the contract factory fails (indicating no more steps)
     }
